@@ -1,0 +1,33 @@
+Installing AWSCLI, KOPS, KUBECTL, Terraform
+===========================================
+Install AWSCLI
+==============
+RedHat like systems
+	
+	yum install epel-release
+    yum install python2-pip
+	pip --version
+	pip install --upgrade pip
+    pip install awscli
+
+INSTALL KUBECTL
+===============
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x kubectl
+mv kubectl /usr/local/bin/kubectl
+
+INSTALL KOPS
+============
+
+curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x kops-linux-amd64
+mv kops-linux-amd64 /usr/local/bin/kops
+
+INSTALL Terraform
+=================
+
+wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+unzip terraform_0.11.13_linux_amd64.zip
+mv terraform /usr/local/bin/
+rm -rf terraform_0.11.13_linux_amd64.zip
